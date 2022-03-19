@@ -1,0 +1,21 @@
+service: nasa-daily-image
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      -schedule : cron(0 12 * * ? 0)
+    environment:
+      NASA_API_KEY: p1s3nOVTMHKC6FZItWA2SuCCDngAoiO1iz9xuOUE
+      TWILIO_ACCOUNT_SID: AC5529fb50b12b80056f5c08d5b07027db
+      TWILIO_AUTH_TOKEN : e06884e029707e94537812ea8a1461c6
+      TWILIO_PHONE_NUMBER : +19704044913
+      MY_PHONE_NUMBER : +1123456789
+
+configValidationMode: error
